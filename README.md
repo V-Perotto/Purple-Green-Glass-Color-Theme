@@ -1,7 +1,7 @@
 # Grape Glass Theme
 
 <p align="center">
-<img title="a title" alt="Alt text" src="./logo.png" width=300px>
+<img title="a title" alt="Alt text" src="./keyboard.png" width=300px>
 </p>
 
 ## VSCodium Example
