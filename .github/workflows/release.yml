@@ -32,7 +32,7 @@ jobs:
 
       # Step 3: Cache Node.js modules to speed up future builds
       - name: Install dependencies
-        run: pnpm clean-install
+        run: pnpm i
       
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: pnpm audit signatures
