@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/V-Perotto/Grape-Glass-Theme/compare/v1.0.0...v1.0.1) (2025-12-11)
+
+### Bug Fixes
+
+- Change color ([0a43607](https://github.com/V-Perotto/Grape-Glass-Theme/commit/0a43607399087ac522007bbb557056301e69ea4d))
+
 # 1.0.0 (2025-12-11)
 
 ### Bug Fixes
