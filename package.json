@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "grape-glass-theme",
   "displayName": "Grape Glass Theme",
   "description": "This theme matches with my keyboard, mouse and desktop theme.",
@@ -48,15 +49,39 @@
     ]
   },
   "license": "MIT",
-  "scripts": {
-    "prepare": "husky"
-  },
   "release": {
     "branches": [
       "main"
     ],
     "plugins": [
-      "@semantic-release/commit-analyzer",
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "type": "feat",
+              "release": "minor"
+            },
+            {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
+              "type": "hotfix",
+              "release": "minor"
+            },
+            {
+              "type": "perf",
+              "release": "patch"
+            },
+            {
+              "type": "breaking",
+              "release": "major"
+            }
+          ]
+        }
+      ],
       "@semantic-release/release-notes-generator",
       [
         "@semantic-release/changelog",
@@ -87,26 +112,34 @@
       ]
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{json,md}": [
+    "*.{json,md,mts,ts,js,mjs}": [
       "prettier --write"
     ]
+  },
+  "scripts": {
+    "prepare": "husky"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
   },
   "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501",
   "devDependencies": {
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-conventional": "^20.2.0",
+    "@commitlint/types": "^20.2.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.1",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "12.0.2",
     "@semantic-release/release-notes-generator": "14.1.0",
+    "commitizen": "^4.3.1",
+    "conventional-changelog-conventionalcommits": "^9.1.0",
+    "cz-git": "^1.12.0",
     "husky": "^9.1.7",
+    "lodash-es": "^4.17.21",
     "ovsx": "^0.10.7",
     "prettier": "^3.7.4",
     "semantic-release": "25.0.2"
