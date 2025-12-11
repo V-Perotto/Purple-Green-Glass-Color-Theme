@@ -10,8 +10,8 @@ permissions:
 
 jobs:
   release:
+    runs-on: ubuntu-latest  # Runs on an Ubuntu runner
     permissions:
-      runs-on: ubuntu-latest  # Runs on an Ubuntu runner
       contents: write         # to be able to publish a GitHub release
       issues: write           # to be able to comment on released issues
       pull-requests: write    # to be able to comment on released pull requests
@@ -37,10 +37,10 @@ jobs:
       - name: Install dependencies
         run: pnpm i
       
-      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+      - name: Verify the provenance signatures for installed dependencies
         run: pnpm audit && pnpm audit fix
 
-      - name: Cache pnpm Node.js modules
+      - name: Cache modules
         uses: actions/cache@v4
         with:
           path: node_modules
