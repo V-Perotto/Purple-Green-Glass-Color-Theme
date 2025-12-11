@@ -71,7 +71,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
   publish:
-    if: github.event_name == 'release' && github.event.inputs.publishOVSX == 'true'
+    needs: release
+    if: success()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
