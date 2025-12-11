@@ -1,3 +1,9 @@
+## [1.3.2](https://github.com/V-Perotto/Grape-Glass-Theme/compare/v1.3.1...v1.3.2) (2025-12-11)
+
+### Bug Fixes
+
+- 🐛 Fix to sync version ([db770f6](https://github.com/V-Perotto/Grape-Glass-Theme/commit/db770f63ddd6d18616de11c8f70512eb103e415a))
+
 ## [1.3.1](https://github.com/V-Perotto/Grape-Glass-Theme/compare/v1.3.0...v1.3.1) (2025-12-11)
 
 ### Bug Fixes
