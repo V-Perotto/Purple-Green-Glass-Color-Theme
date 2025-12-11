@@ -58,9 +58,6 @@
         "@semantic-release/commit-analyzer",
         {
           "preset": "conventionalcommits",
-          "parserOpts": {
-            "headerPattern": "^(?:[\\u2700-\\u27BF]|[\\uE000-\\uF8FF]|\\uD83C[\\uDC00-\\uDFFF]|\\uD83D[\\uDC00-\\uDFFF]|\\uD83E[\\uDC00-\\uDFFF])\\s*(\\w*)(?:\\((.*)\\))?!?:\\s*(.*)$"
-          },
           "releaseRules": [
             {
               "type": "feat",

@@ -1,45 +1,8 @@
-import type { ParserPreset, UserConfig } from '@commitlint/types';
 import { RuleConfigSeverity } from '@commitlint/types';
-import createPreset from 'conventional-changelog-conventionalcommits';
-import { merge } from 'lodash-es';
 import type { CommitlintUserConfig } from 'cz-git';
-
-const EMOJIS = {
-  build: '🛠️',
-  ci: '⚙️',
-  docs: '📚',
-  feat: '✨',
-  fix: '🐛',
-  perf: '🚀',
-  refactor: '🔧',
-  style: '🎨',
-  test: '✅',
-  chore: '♻️',
-  revert: '⏪',
-  bump: '⬆️',
-};
-const emojiRegexPart = Object.values(EMOJIS).join('|');
-
-async function createEmojiParser(): Promise<ParserPreset> {
-  const parserOpts = {
-    headerPattern: new RegExp(`^(?:${emojiRegexPart})\\s*(\\w*)(?:\\((.*)\\))?!?:\\s*(.*)$`),
-  };
-
-  const emojiParser = merge({}, await createPreset(), {
-    conventionalChangelog: { parserOpts },
-    parserOpts,
-    recommendedBumpOpts: { parserOpts },
-  });
-
-  return emojiParser;
-}
-
-const emojiParser = await createEmojiParser();
 
 const Configuration: CommitlintUserConfig = {
   extends: ['@commitlint/config-conventional'],
-  parserPreset: emojiParser,
-
   rules: {
     'type-enum': [
       RuleConfigSeverity.Error,
@@ -65,67 +28,66 @@ const Configuration: CommitlintUserConfig = {
     types: [
       {
         value: 'build',
-        name: 'build:    🛠️  Changes that affect the build system or external dependencies',
+        name: '🛠️ build:     Changes that affect the build system or external dependencies',
         emoji: '🛠️',
       },
       {
         value: 'ci',
-        name: 'ci:       ⚙️  Changes to our CI configuration files and scripts',
+        name: '⚙️ ci:        Changes to our CI configuration files and scripts',
         emoji: '⚙️',
       },
       {
         value: 'docs',
-        name: 'docs:     📚  Documentation only changes',
+        name: '📚 docs:      Documentation only changes',
         emoji: '📚',
       },
       {
         value: 'feat',
-        name: 'feat:     ✨  A new feature',
+        name: '✨ feat:      A new feature',
         emoji: '✨',
       },
       {
         value: 'fix',
-        name: 'fix:      🐛  A bug fix',
+        name: '🐛 fix:       A bug fix',
         emoji: '🐛',
       },
       {
         value: 'perf',
-        name: 'perf:     🚀  A code change that improves performance',
+        name: '🚀 perf:      A code change that improves performance',
         emoji: '🚀',
       },
       {
         value: 'refactor',
-        name: 'refactor: 🔧  A code change that neither fixes a bug nor adds a feature',
+        name: '🔧 refactor:  A code change that neither fixes a bug nor adds a feature',
         emoji: '🔧',
       },
       {
         value: 'style',
-        name: 'style:    🎨  Changes that do not affect the meaning of the code',
+        name: '🎨 style:     Changes that do not affect the meaning of the code',
         emoji: '🎨',
       },
       {
         value: 'test',
-        name: 'test:     ✅  Adding missing tests or correcting existing tests',
+        name: '✅ test:      Adding missing tests or correcting existing tests',
         emoji: '✅',
       },
       {
         value: 'chore',
-        name: "chore:    ♻️  Other changes that don't modify src or test files",
+        name: "♻️ chore:     Other changes that don't modify src or test files",
         emoji: '♻️',
       },
       {
         value: 'revert',
-        name: 'revert:   ⏪  Reverts a previous commit',
+        name: '⏪ revert:    Reverts a previous commit',
         emoji: '⏪',
       },
       {
         value: 'bump',
-        name: 'bump:     ⬆️  Bump version',
+        name: '⬆️ bump:      Bump version',
         emoji: '⬆️',
       },
     ],
     useEmoji: true,
-    emojiAlign: 'left',
     themeColorCode: '38;5;055',
     scopes: [],
     allowCustomScopes: true,
@@ -154,7 +116,7 @@ const Configuration: CommitlintUserConfig = {
     defaultIssues: '',
     defaultScope: '',
     defaultSubject: '',
-    format: '{emoji} {type}{scope}: {subject}',
+    format: '{type}{scope}: {emoji} {subject}',
   },
 };
 
