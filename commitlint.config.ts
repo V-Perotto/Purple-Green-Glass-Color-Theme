@@ -1,8 +1,45 @@
-import type { CommitlintUserConfig } from 'cz-git';
+import type { ParserPreset, UserConfig } from '@commitlint/types';
 import { RuleConfigSeverity } from '@commitlint/types';
+import createPreset from 'conventional-changelog-conventionalcommits';
+import { merge } from 'lodash-es';
+import type { CommitlintUserConfig } from 'cz-git';
+
+const EMOJIS = {
+  build: '🛠️',
+  ci: '⚙️',
+  docs: '📚',
+  feat: '✨',
+  fix: '🐛',
+  perf: '🚀',
+  refactor: '🔧',
+  style: '🎨',
+  test: '✅',
+  chore: '♻️',
+  revert: '⏪',
+  bump: '⬆️',
+};
+const emojiRegexPart = Object.values(EMOJIS).join('|');
+
+async function createEmojiParser(): Promise<ParserPreset> {
+  const parserOpts = {
+    headerPattern: new RegExp(`^(?:${emojiRegexPart})\\s*(\\w*)(?:\\((.*)\\))?!?:\\s*(.*)$`),
+  };
+
+  const emojiParser = merge({}, await createPreset(), {
+    conventionalChangelog: { parserOpts },
+    parserOpts,
+    recommendedBumpOpts: { parserOpts },
+  });
+
+  return emojiParser;
+}
+
+const emojiParser = await createEmojiParser();
 
 const Configuration: CommitlintUserConfig = {
   extends: ['@commitlint/config-conventional'],
+  parserPreset: emojiParser,
+
   rules: {
     'type-enum': [
       RuleConfigSeverity.Error,
