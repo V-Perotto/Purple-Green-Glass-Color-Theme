@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/V-Perotto/Grape-Glass-Theme/compare/v1.2.0...v1.3.0) (2025-12-11)
+
+### Features
+
+- ✨ Added new color to activityBar.activeBackground ([7bddbea](https://github.com/V-Perotto/Grape-Glass-Theme/commit/7bddbea57f1b689e3d50a7825d00fea66be6f808))
+
 # [1.2.0](https://github.com/V-Perotto/Grape-Glass-Theme/compare/v1.1.0...v1.2.0) (2025-12-11)
 
 ### Features
