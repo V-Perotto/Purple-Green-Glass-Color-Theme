@@ -404,9 +404,7 @@
     {
       "name": "inserted.diff",
       "scope": "markup.inserted.diff",
-      "settings": {
-        "foreground": "#c9f7df"
-      }
+      "settings": { "foreground": "#c9f7df" }
     },
     {
       "name": "deleted.diff",
