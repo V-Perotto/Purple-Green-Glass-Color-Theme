@@ -69,12 +69,9 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
-  publish:
-    needs: release
-    if: success()
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
+
       - name: Publish to Open VSX
+        if: steps.semantic.outputs.new_release_published == 'true'
         run: npx ovsx publish -p ${{ secrets.OVSX_PAT }}
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
