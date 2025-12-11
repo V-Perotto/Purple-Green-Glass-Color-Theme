@@ -55,7 +55,7 @@ jobs:
         run: pnpm i
       
       - name: Verify the provenance signatures for installed dependencies
-        run: pnpm audit && pnpm audit fix
+        run: pnpm audit && pnpm audit --fix
 
       - name: Cache modules
         uses: actions/cache@v4.2.0
