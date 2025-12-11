@@ -27,6 +27,7 @@ jobs:
   release:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest  # Runs on an Ubuntu runner
+    environment: Secrets to Publish and Release
     
     permissions:
       contents: write         # to be able to publish a GitHub release
@@ -73,4 +74,7 @@ jobs:
 
       - name: Publish to Open VSX
         # if: steps.semantic.outputs.new_release_published == 'true'
-        run: npx ovsx publish -p ${{ secrets.OVSX_PAT }}
+        run: npx ovsx publish
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        
