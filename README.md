@@ -7,17 +7,17 @@
 <h2 align="center">What inspired this theme</h2>
 <h3 align="center">My Keyboard</h3>
 <p align="center">
-<img title="a title" alt="Alt text" src="./keyboard.png" width=300px style="border-radius: 15px">
+<img title="My keyboard" alt="My keyboard" src="./keyboard.png" width=300px style="border-radius: 15px">
 </p>
 <h2 align="center">VSCodium Example</h2>
 <h3 align="center">Zoomed</h3>
 <p align="center">
-<img title="a title" alt="Alt text" src="./zoomed_example.png" style="border-radius: 15px">
+<img title="Zoomed theme example" alt="Zoomed theme example" src="./zoomed_example.png" style="border-radius: 15px">
 </p>
 
 <h3 align="center">Principal</h3>
 <p align="center">
-<img title="a title" alt="Alt text" src="./theme_example.png" style="border-radius: 3px">
+<img title="Theme example" alt="Theme example" src="./theme_example.png" style="border-radius: 3px">
 </p>
 
 ## Important
